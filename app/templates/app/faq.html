@@ -1,0 +1,56 @@
+{% extends 'app/base.html' %}
+{%  load static %}
+{% block title  %}
+faq
+{% endblock %}
+{% block content %}
+<br>
+<br>
+<!-- faq section start-->
+<section class="Questions ">
+  <div class="container">
+    <center>
+      <h2><b style="font-family:times-new-roman;">Frequently Asked  <span class="text-danger"> Question</span></b></h2>
+    </center>
+  
+  
+
+
+  <div class="d-flex flex-column flex-md-row align-items-start">
+  <div class="w-100 mt-5" style="border:none;">
+    
+    <div class="accordion accordion-flush" id="accordionFlushExample1 ">
+      <div class="row">
+      {% for faq in faqs %}
+          <div class="col-md-6">
+
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="flush-heading-{{faq.id}}">
+                <button class="accordion-button collapsed" style="border:none; box-shadow:none;" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse-{{faq.id}}" aria-expanded="false" aria-controls="flush-collapse-{{faq.id}}">
+                  <h3 style="color:#00043a; font-family:times-new-roman; "> {{faq.title }} </h3>
+                </button>
+              </h2>
+              <div id="flush-collapse-{{faq.id}}" class="accordion-collapse collapse" aria-labelledby="flush-heading-{{faq.id}}" data-bs-parent="#accordionFlushExample">
+                <div class="accordion-body">
+                  <p>
+                  {{faq.discriptions|safe}}
+
+                  </div>
+                  </p>
+                </div>
+            </div>
+          </div>
+          
+      {% endfor %}
+      </div>
+    </div>
+  </div>
+
+  
+  </div>
+ 
+</div>
+</section>
+<!-- end faq section-->
+
+   {% endblock %}

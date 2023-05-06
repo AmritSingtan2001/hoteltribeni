@@ -1,0 +1,131 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %}
+Gallery
+{% endblock %}
+{% block content %}
+
+<!-- Gallery Section Begin -->
+<section class="gallery-section spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="section-title">
+                    <span>Our Gallery</span>
+                    <h2>Discover Our Gallery</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            {% for image in gallery_images %}
+            <div class="col-lg-6">
+
+                <button style="background:none; border:none;" type="button"  data-toggle="modal" data-target=".bd-example-modal-lg">
+                      <img src="{{image.image.url}}">
+                </button>
+
+
+                <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
+                      <div class="modal-content">
+                        <div class="modal-body">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <img src="{{image.image.url}}" width="100%">
+
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+
+
+
+               
+
+                <div class="row">
+                    {% for image in galler_inner_image %}
+                    <div class="col-sm-6">
+
+                        <button style="background:none; border:none;" type="button"  data-toggle="modal" data-target=".bd-example-modal-lg-{{image.id}}">
+                            <img src="{{image.image.url}}">
+                        </button>
+
+
+                        <div class="modal fade bd-example-modal-lg-{{image.id}}" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-lg">
+                              <div class="modal-content">
+                                <div class="modal-body">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                    <img src="{{image.image.url}}" width="100%">
+                                    
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                    </div>
+                    {% endfor %}
+                    
+                </div>
+            </div>
+            {% endfor %}
+
+            {% for image in single_image %}
+            <div class="col-lg-6">
+                <button style="background:none; border:none;" type="button"  data-toggle="modal" data-target=".bd-example-modal-lg-{{image.id}}">
+                    <img src="{{image.image.url}}">
+                </button>
+
+                
+                <div class="modal fade bd-example-modal-lg-{{image.id}}" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
+                      <div class="modal-content">
+                        <div class="modal-body">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <img src="{{image.image.url}}" width="100%">
+                            
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+            </div>
+            {% endfor %}
+
+      
+     
+        <div class="row">
+            {% for image in images %}
+            <div class="col-md-4">
+                <button style="background:none; border:none;" type="button"  data-toggle="modal" data-target=".bd-example-modal-lg-{{image.id}}">
+                    <img src="{{image.image.url}}">
+                </button>
+
+                
+                <div class="modal fade bd-example-modal-lg-{{image.id}}" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
+                      <div class="modal-content">
+                        <div class="modal-body">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <img src="{{image.image.url}}" width="100%">
+                            
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+            </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+<!-- Gallery Section End -->
+
+
+{% endblock %}
